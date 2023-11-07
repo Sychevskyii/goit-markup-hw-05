@@ -241,13 +241,18 @@ ol {
   z-index: 10;
   width: 100%;
   height: 100%;
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(47, 48, 58, 0.6);
+  transition: visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+
+.backdrop.is-hidden .modal-wrapper {
+  transform: translateX(-50%) translateY(-50%) scale(0.8);
 }
 
 .modal-wrapper {
@@ -260,8 +265,8 @@ ol {
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  transition: scale 0.25s ;
+  transform: translateX(-50%) translateY(-50%) scale(1);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close {
@@ -276,7 +281,7 @@ ol {
   align-items: center;
   background-color: transparent;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Секція про нас */
@@ -461,6 +466,12 @@ ol {
   color: #afb1b8;
   border-radius: 4px;
   border: 1px solid #afb1b8;
+  transition: border 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clients-list-link:hover,
+.clients-list-link:focus {
+  border: 1px solid var(--accent-cl);
 }
 
 .clients-list-link:hover .clients-icon,
